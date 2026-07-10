@@ -1,0 +1,5 @@
+/* Keep the primary navigation reachable across the full landing page. */
+.nav-wrap{position:fixed;top:0;left:0;width:100%;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:all 0.3s ease}
+.nav-wrap.scrolled{background:rgba(9,11,21,.72);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.nav{height:72px}
+@media(max-width:540px){.nav{height:64px}.mobile-menu{top:61px}}

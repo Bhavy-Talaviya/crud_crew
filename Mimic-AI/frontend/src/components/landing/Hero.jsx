@@ -20,7 +20,7 @@ export default function Hero() {
       <motion.div className="pill" initial={{opacity:0, y:10}} animate={{opacity:1,y:0}}><span></span> YOUR VOICE, REIMAGINED</motion.div>
       <motion.h1 initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{delay:.1}}>Your voice.<br/><em>Everywhere.</em></motion.h1>
       <motion.p initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{delay:.18}}>Mimic learns how you communicate — your tone, your rhythm, your little quirks — and helps you stay present, even when life gets busy.</motion.p>
-      <motion.div className="hero-actions" initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{delay:.25}}><a className="primary-button" href="#start">Create your digital clone <ArrowRight size={18}/></a><a className="text-button" href="#how-it-works">See how it works <span>↓</span></a></motion.div>
+      <motion.div className="hero-actions" initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{delay:.25}}><a className="primary-button" href="/login">Create your digital clone <ArrowRight size={18}/></a><a className="text-button" href="#how-it-works">See how it works <span>↓</span></a></motion.div>
       <div className="trust"><div className="avatars"><b>J</b><b>M</b><b>S</b><b>A</b></div><span>Trusted by <strong>2,000+</strong> early creators</span></div>
     </div><div className="hero-visual"><Dashboard /><div className="float-card profile-card"><span>✦</span><div><small>VOICE PROFILE</small><b>Warm & witty</b></div><Check size={15}/></div><div className="float-card training-card"><div className="pulse"></div><div><small>TRAINING COMPLETE</small><b>2,847 messages learned</b></div></div></div></div>
   </section>
