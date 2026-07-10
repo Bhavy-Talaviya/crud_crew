@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { ArrowLeft, ArrowRight, Check, Mail, Sparkles } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, Mail } from 'lucide-react'
+import Logo from '../components/Logo'
 import './Login.css'
 
 const GoogleMark = () => <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.35 12.2c0-.71-.06-1.4-.18-2.05H12v3.88h5.24a4.48 4.48 0 0 1-1.94 2.94v2.52h3.15c1.84-1.7 2.9-4.2 2.9-7.29Z" /><path fill="#34A853" d="M12 21.7c2.63 0 4.84-.87 6.45-2.37l-3.15-2.52c-.87.59-1.99.94-3.3.94-2.54 0-4.7-1.71-5.47-4.01H3.29v2.6A9.74 9.74 0 0 0 12 21.7Z" /><path fill="#FBBC05" d="M6.53 13.74A5.84 5.84 0 0 1 6.22 12c0-.6.1-1.17.31-1.74v-2.6H3.29A9.7 9.7 0 0 0 2.3 12c0 1.56.37 3.04.99 4.34l3.24-2.6Z" /><path fill="#EA4335" d="M12 6.25c1.43 0 2.72.49 3.73 1.45l2.8-2.8C16.83 3.31 14.63 2.3 12 2.3a9.74 9.74 0 0 0-8.71 5.36l3.24 2.6c.77-2.3 2.93-4.01 5.47-4.01Z" /></svg>
@@ -12,16 +13,15 @@ export default function Login() {
     <div className="login-grid" /><div className="login-orb one" /><div className="login-orb two" />
     <div className="login-header-stack">
       <a className="brand" href="/">
-        <span className="brand-mark"><Sparkles size={15} /></span>
-        Mimic
+        <Logo compact />
       </a>
       <a className="back-home" href="/">
         <ArrowLeft size={18} /> Back to home
       </a>
     </div>
     <section className="login-shell">
-      <aside className="login-aside"><div><span className="aside-kicker">YOUR VOICE, AMPLIFIED</span><h1>Pick up where<br />you <i>left off.</i></h1><p>A little more presence for every conversation that matters.</p></div><div className="login-quote"><div className="quote-stars">✦ ✦ ✦</div><p>“It doesn’t just save me time. It makes me feel like I’m actually keeping up with my people.”</p><span>— Maya, early creator</span></div></aside>
-      <div className="login-card"><div className="login-card-top"><span className="login-spark"><Sparkles size={18} /></span><p className="eyebrow">WELCOME TO MIMIC</p><h2>Start with <i>you.</i></h2><p>Sign in to create a voice that’s unmistakably yours.</p></div>
+      <aside className="login-aside"><div><span className="aside-kicker">YOUR VOICE, AMPLIFIED</span><h1>Pick up where<br />you <i>left off.</i></h1><p>A more thoughtful way to stay present in the conversations that matter.</p></div><div className="login-quote"><div className="quote-stars">✦ ✦ ✦</div><p>“It doesn’t just save time. It helps me feel more connected to the people I care about.”</p><span>— Maya, early creator</span></div></aside>
+      <div className="login-card"><div className="login-card-top"><span className="login-spark"><Logo /></span><p className="eyebrow">WELCOME TO MIMIC</p><h2>Start with <i>you.</i></h2><p>Sign in to create a voice profile that feels thoughtfully yours.</p></div>
         <div className="provider-buttons"><button onClick={(e) => submit(e, 'Google')}><GoogleMark />Continue with Google</button><button onClick={(e) => submit(e, 'GitHub')}><GitHubMark />Continue with GitHub</button></div>
         <div className="divider"><span>or continue with email</span></div>
         <form onSubmit={(e) => submit(e, 'Email')}><label htmlFor="email">Email address</label><div className="email-field"><Mail size={17} /><input id="email" type="email" placeholder="you@example.com" required /></div><button className="login-submit" type="submit">Continue with email <ArrowRight size={17} /></button></form>
