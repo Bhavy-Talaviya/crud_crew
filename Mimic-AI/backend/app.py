@@ -25,7 +25,7 @@ socketio = SocketIO(
     app,
     cors_allowed_origins=["http://localhost:5173", "https://crud-crew.vercel.app"],
     async_mode='eventlet',
-    manage_session=False,
+    manage_session=True,
     ping_timeout=60,
     ping_interval=25
 )

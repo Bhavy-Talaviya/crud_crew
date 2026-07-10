@@ -89,6 +89,9 @@ export default function ChatPage() {
       transports: ['polling', 'websocket'],
       reconnectionAttempts: 10,
       reconnectionDelay: 1000,
+      auth: {
+        user_id: currentUser.id
+      },
     });
 
     socketRef.current = sock;

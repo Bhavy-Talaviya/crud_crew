@@ -27,9 +27,16 @@ def register_socket_events(socketio):
     """Register all Socket.IO event handlers."""
 
     @socketio.on('connect')
-    def handle_connect():
+    def handle_connect(auth=None):
         """Handle user connection."""
         user_id = session.get('user_id')
+
+        # Fallback: use auth data if session cookie is not available (cross-origin deploy)
+        if not user_id and auth:
+            user_id = auth.get('user_id')
+            if user_id:
+                session['user_id'] = user_id
+
         if not user_id:
             return False  # Reject connection
 
