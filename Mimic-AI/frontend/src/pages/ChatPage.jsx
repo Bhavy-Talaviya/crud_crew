@@ -124,13 +124,19 @@ export default function ChatPage() {
     });
 
     sock.on('user_status', (data) => {
-      setContacts((prev) =>
-        prev.map((c) =>
+      setContacts((prev) => {
+        const exists = prev.some((c) => c.id === data.user_id);
+        if (!exists) {
+          // New user connected - request updated contact list from backend
+          sock.emit('get_contacts');
+          return prev;
+        }
+        return prev.map((c) =>
           c.id === data.user_id
             ? { ...c, is_online: data.is_online ? 1 : 0, last_seen: data.last_seen }
             : c
-        )
-      );
+        );
+      });
 
       setActiveChat((prev) => {
         if (prev && prev.id === data.user_id) {

@@ -39,6 +39,11 @@ def register_socket_events(socketio):
         if not user_id:
             return False  # Reject connection
 
+        try:
+            user_id = int(user_id)
+        except (ValueError, TypeError):
+            return False
+
         sid_to_user[request.sid] = user_id
         connected_users[user_id] = request.sid
         set_user_online(user_id, True)
