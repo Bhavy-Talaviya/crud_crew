@@ -85,7 +85,12 @@ export default function ChatPage() {
   useEffect(() => {
     if (!currentUser) return;
 
-    const sock = io(import.meta.env.VITE_API_URL || '', {
+    const socketUrl = 
+      window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? ''
+        : 'https://crud-crew-4a12.onrender.com';
+
+    const sock = io(socketUrl, {
       withCredentials: true,
       transports: ['polling', 'websocket'],
       reconnectionAttempts: 10,

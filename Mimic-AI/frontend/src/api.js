@@ -2,7 +2,10 @@
 // In production, requests go directly to the Render backend URL.
 // In local dev, requests use relative URLs (handled by Vite proxy).
 
-const API_URL = import.meta.env.VITE_API_URL || '';
+const API_URL = 
+  window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? ''
+    : 'https://crud-crew-4a12.onrender.com';
 
 /**
  * Get the stored user from localStorage.
