@@ -109,35 +109,74 @@ Then open `http://localhost:PORT` in your browser.
 
 ```
 digital-clone/
-├── README.md                    # setup steps + how to run (judges will read this)
+│
+├── README.md
+├── .env
 ├── .env.example
 ├── .gitignore
 │
 ├── backend/
-│   ├── parser/                  # FR2/FR3 - .txt parsing, cleaning, pairing
-│   │   └── sample_data/         # a few test exports for dev (not real personal data)
-│   ├── style_profile/           # FR4 - few-shot builder, tone summary
-│   ├── llm/                     # FR5 - Ollama integration + prompt templates
-│   └── app.py / server.js       # API entrypoint
+│   ├── server.js
+│   ├── package.json
+│   │
+│   ├── routes/
+│   │   ├── upload.routes.js
+│   │   ├── chat.routes.js
+│   │   └── style.routes.js
+│   │
+│   ├── controllers/
+│   │   ├── upload.controller.js
+│   │   ├── chat.controller.js
+│   │   └── style.controller.js
+│   │
+│   ├── parser/
+│   │   ├── whatsappParser.js
+│   │   ├── cleanChat.js
+│   │   ├── pairMessages.js
+│   │   └── sample_data/
+│   │
+│   ├── style_profile/
+│   │   ├── personalityAnalyzer.js
+│   │   ├── promptBuilder.js
+│   │   └── styleSummary.js
+│   │
+│   ├── llm/
+│   │   ├── ollama.js          👈 Ollama API Call
+│   │   ├── promptTemplate.js
+│   │   └── models.js
+│   │
+│   ├── services/
+│   │   └── chatService.js
+│   │
+│   ├── utils/
+│   │   └── logger.js
+│   │
+│   └── uploads/
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── components/
-│   │   │   ├── UploadScreen/    # FR1
-│   │   │   └── ChatUI/          # FR7
-│   │   └── App.jsx
-│   └── public/
-│
-├── training/                    # ONLY if attempting SR4 fine-tuning stretch
-│   └── notebook.ipynb           # Colab + Unsloth
+│   │
+│   ├── pages/
+│   │   ├── Landing.jsx
+│   │   ├── Upload.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── Chat.jsx
+│   │   └── Analytics.jsx
+│   │
+│   ├── components/
+│   │   ├── UploadScreen/
+│   │   ├── ChatUI/
+│   │   ├── PersonalityCard/
+│   │   ├── ProgressLoader/
+│   │   └── Navbar/
+│   │
+│   └── App.jsx
 │
 ├── docs/
-│   ├── PRD.md                   # Full product requirements
-│   ├── business_case.md         # one-liner + why it matters
-│   └── demo_script.md           # rehearsed fallback plan, talking points
+│
+├── training/
 │
 └── scripts/
-    └── setup.sh                 # installs deps, pulls Ollama model, one command to run
 ```
 
 ---
